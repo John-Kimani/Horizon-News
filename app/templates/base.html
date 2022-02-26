@@ -38,3 +38,12 @@
 </nav>
 {% endblock %}
 <!-- navbar end -->
+
+<!-- body starts -->
+{% block content %}
+    <div class="container">
+        {% block app_content %}
+        <!-- body components -->
+        {% endblock %}
+    </div>
+{% endblock %}
