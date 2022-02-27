@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .requests import get_source
+from .requests import get_source, get_articles
 
 
 @app.route('/')
@@ -16,4 +16,6 @@ def index():
 
 @app.route('/articles')
 def articles():
-    return render_template('articles.html', title='Articles')
+    articles = get_articles('technology')
+    print(articles)
+    return render_template('articles.html', title='Articles', articles=articles)
