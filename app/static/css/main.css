@@ -1,0 +1,14 @@
+/* *{
+    background-color: #f6f4f0;
+} */
+/* .navbar{
+    background-color: #B93717;
+    color: white;
+} */
+.jumbotron{
+    background-color: #B93717;
+    color: white;
+}
+.sidebar > li{
+    list-style: none; 
+}

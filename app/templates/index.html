@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
-
+<!-- head starts -->
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
 
 {% block app_content %}
     <div class="row">
-        <h1 class="text-center">Welcome to Horizon News</h1>
         {% for news_source in news_sources %}
+        <!-- <div class="col-md-4">
+            {{news_source.name}}
+        </div> -->
         <div class="col-md-6">
             <!-- News Sources -->
                 <div class="card">
@@ -13,11 +19,11 @@
                             <div class="card-body">
                                 <ul>
                                     <li> <p>{{news_source.description}}</p> </li>
-                                    <li> <p>{{news_source.category}}</p> </li>
-                                    <li> <p>{{news_source.country}}</p> </li>
+                                    <!-- <li> <p>{{news_source.category}}</p> </li>
+                                    <li> <p>{{news_source.country}}</p> </li> -->
                                 </ul>
                             </div>
-                            <a href="{{news_source.url}}" class="btn btn-primary">Visit website</a>
+                            <a href="{{news_source.url}}" class="btn visit-btn">Visit website</a>
                         </div>
                 </div>
             </div>

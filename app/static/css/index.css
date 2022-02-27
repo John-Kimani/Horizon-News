@@ -1,0 +1,8 @@
+.card-body > ul > li{
+    list-style: none;
+}
+.visit-btn{
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
