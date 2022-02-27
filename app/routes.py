@@ -12,3 +12,8 @@ def index():
     news_sources = get_source('general')
     print(news_sources)
     return render_template('index.html',title='Home', news_sources=news_sources)
+
+
+@app.route('/articles')
+def articles():
+    return render_template('articles.html', title='Articles')
