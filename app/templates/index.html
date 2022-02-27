@@ -6,5 +6,12 @@
         <div class="col-md-12">
             <h1>Welcome to Horizon News</h1>
         </div>
+
+        <!-- News Sources -->
+        <ul>
+            {% for news_source in news_sources %}
+                <li><h3>Source:</h3> {{news_source.name}}</li>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock%}

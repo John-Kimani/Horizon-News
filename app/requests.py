@@ -1,8 +1,8 @@
-from app import app
+from app import app,models
 import urllib.request,json
-from .models import Source
 
-news = Source
+
+news = models.Source
 
 
 def get_source(category):
