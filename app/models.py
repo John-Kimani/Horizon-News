@@ -26,6 +26,6 @@ class Article:
         self.title = title
         self.description = description
         self.url = url
-        self.urlToImahe = urlToImage
+        self.urlToImage = urlToImage
         self.publishedAt = publishedAt
         self.content = content
