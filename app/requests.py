@@ -82,7 +82,7 @@ def get_articles(category):
 
         return articles_results
 
-def process_atricles(articles_list):
+def process_articles(articles_list):
     '''
     Function that process articles results and transform them to list of objects
     Args:
