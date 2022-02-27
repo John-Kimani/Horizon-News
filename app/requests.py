@@ -54,3 +54,30 @@ def process_results(source_list):
             source_results.append(source_object)
 
     return source_results
+
+
+#articles starts
+
+def get_articles(category):
+    '''
+    Function to get articles
+    '''
+    article_source_url = app.config['NEWS_ARTICLE_API_URL']
+    apiKey = app.config['NEWS_APIKEY']
+    get_articles_url = article_source_url.format(category, apiKey)
+
+    '''4
+    Context manager that sends article request
+    '''
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_article_data = url.read()
+        get_article_response = json.load(get_article_data)
+
+
+        article_results = None
+
+        if get_article_response['articles']:
+            articles_results_list = get_article_response['articles']
+            article_results = process_articles(articles_results_list)
+
+        return article_results
