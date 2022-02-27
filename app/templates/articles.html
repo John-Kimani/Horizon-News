@@ -11,5 +11,13 @@
 
 <!-- body starts -->
 {% block app_content %}
-
+    <div class="row">
+        <h1>Welcome to Horizon News</h1>
+        <h3>Read the lastest new in technology</h3>
+        {% for article in articles %}
+            <ul>
+                <li><p>{{article.title}}</p></li>
+            </ul>
+        {% endfor %}
+    </div>
 {% endblock %}
