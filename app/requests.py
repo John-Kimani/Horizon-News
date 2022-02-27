@@ -3,6 +3,7 @@ import urllib.request,json
 
 
 news = models.Source
+article_body = models.Article
 
 
 def get_source(category):
@@ -58,27 +59,27 @@ def process_results(source_list):
 
 #articles starts
 
-def get_articles(category):
+def get_articles():
     '''
     Function to get articles
     '''
     article_source_url = app.config['NEWS_ARTICLE_API_URL']
     apiKey = app.config['NEWS_APIKEY']
-    get_articles_url = article_source_url.format(category, apiKey)
+    get_articles_url = article_source_url.format(apiKey)
 
-    '''4
+    '''
     Context manager that sends article request
     '''
     with urllib.request.urlopen(get_articles_url) as url:
         get_article_data = url.read()
-        get_article_response = json.load(get_article_data)
+        get_article_response = json.loads(get_article_data)
 
 
         articles_results = None
 
         if get_article_response['articles']:
             articles_results_list = get_article_response['articles']
-            article_results = process_articles(articles_results_list)
+            articles_results = process_articles(articles_results_list)
 
         return articles_results
 
@@ -92,15 +93,15 @@ def process_articles(articles_list):
     '''
     articles_results = []
     for article in articles_list:
-        author = articles_list.get('author')
-        title = articles_list.get('title')
-        description = articles_list.get('description')
-        url = articles_list.get('url')
-        urlToImages = articles_list.get('urlToImages')
-        publishedAt = articles_list.get('publishedAt')
-        content = articles_list.get('content')
-        if article:
-            article_object = article(author, title, description, url, urlToImages, publishedAt, content)
+        author = article.get('author')
+        title = article.get('title')
+        description = article.get('description')
+        url = article.get('url')
+        urlToImages = article.get('urlToImages')
+        publishedAt = article.get('publishedAt')
+        content = article.get('content')
+        if description:
+            article_object = article_body(author, title, description, url, urlToImages, publishedAt, content)
             articles_results.append(article_object) 
 
         return articles_results

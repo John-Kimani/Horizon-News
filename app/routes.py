@@ -16,6 +16,6 @@ def index():
 
 @app.route('/articles')
 def articles():
-    articles = get_articles('technology')
+    articles = get_articles()
     print(articles)
     return render_template('articles.html', title='Articles', articles=articles)
