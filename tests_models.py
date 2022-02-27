@@ -1,7 +1,7 @@
 import unittest
-from app.models import Source
+from app.models import Source,Article
 news_source = Source
-
+news_article = Article
 
 class Test_Source(unittest.TestCase):
     '''
@@ -24,6 +24,32 @@ class Test_Source(unittest.TestCase):
         self.assertEqual(self.news_source.category, 'technology')
         self.assertEqual(self.news_source.country, 'Kenya')
 
+
+class Test_Article(unittest.TestCase):
+    '''
+    Test class to test behaviour of articles class
+    '''
+    def setUp(self):
+        '''
+        Set up method that runs before each test
+        '''
+        self.news_article = Article('BBC', 'Kimperria','Fintech', 'All about fintech', 'https:/kimperia.com', 'https:/kimperria.com/images', '27/02/2021', 'Great news')
+
+
+
+    def test__init(self):
+        '''
+        Test to check if new object is properly initialized
+        '''
+        self.news_article = Article()
+        self.assertEqual(self.news_article.source)
+        self.assertEqual(self.news_article.author)
+        self.assertEqual(self.news_article.title)
+        self.assertEqual(self.news_article.description)
+        self.assertEqual(self.news_article.url)
+        self.assertEqual(self.news_article.urlToImage)
+        self.assertEqual(self.news_article.publishedAt)
+        self.assertEqual(self.news_article.content)
 
 if __name__ == '__main__':
     unittest.main()
