@@ -74,10 +74,33 @@ def get_articles(category):
         get_article_response = json.load(get_article_data)
 
 
-        article_results = None
+        articles_results = None
 
         if get_article_response['articles']:
             articles_results_list = get_article_response['articles']
             article_results = process_articles(articles_results_list)
 
-        return article_results
+        return articles_results
+
+def process_atricles(articles_list):
+    '''
+    Function that process articles results and transform them to list of objects
+    Args:
+        articles_list: Dictionary that contain articles 
+    Returns:
+        articles_results: List of new objects
+    '''
+    articles_results = []
+    for article in articles_list:
+        author = articles_list.get('author')
+        title = articles_list.get('title')
+        description = articles_list.get('description')
+        url = articles_list.get('url')
+        urlToImages = articles_list.get('urlToImages')
+        publishedAt = articles_list.get('publishedAt')
+        content = articles_list.get('content')
+        if article:
+            article_object = article(author, title, description, url, urlToImages, publishedAt, content)
+            articles_results.append(article_object) 
+
+        return articles_results
