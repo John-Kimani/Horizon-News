@@ -5,7 +5,7 @@ Horizon News is a news web application.
 This application helps user to read news and keep up with current trends from across various news sources.
 
 # App screenshot
-![Horizon NEWS]()
+![Horizon NEWS](app/static/assets/images/Horizon-NEWS.png)
 ## Installation
 
 Guide to install Horizon News application:
