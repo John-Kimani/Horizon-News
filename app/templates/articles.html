@@ -13,11 +13,21 @@
 {% block app_content %}
     <div class="row">
         <h1>Welcome to Horizon News</h1>
-        <h3>Read the lastest new in technology</h3>
+        <h3>Read the lastest news across the globe</h3>
         {% for article in articles %}
-            <ul>
-                <li><p>{{article.title}}</p></li>
-            </ul>
+        <div class="card">
+            <img src="{{ article.urlToImage }}" class="card-img-top" alt="Article Image">
+            <div class="card-body">
+              <h5 class="card-title">{{article.title}} from: {{article.source}}</h5>
+              <div class="card">
+                <div class="card-body">
+                    <p>{{article.description}}</p>
+                    <p>{{article.content}}</p> <a href="{{article.url}}" class="btn visit-btn">Click here to read more</a>
+                    <p>Date: {{article.publishedAt}}</p>
+                </div>
+              </div>
+            </div>
+        </div>
         {% endfor %}
     </div>
 {% endblock %}
