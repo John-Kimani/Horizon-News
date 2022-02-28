@@ -11,3 +11,5 @@ class Config(object):
     NEWS_ARTICLE_URL = os.environ.get('NEWS_ARTICLE_URL')
     NEWS_TOP_STORIES_API_URL = os.environ.get('NEWS_TOP_STORIES_API_URL')
     NEWS_APIKEY = os.environ.get('NEWS_APIKEY')
+
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
