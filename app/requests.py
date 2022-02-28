@@ -80,8 +80,9 @@ def get_articles(source_id):
         if get_article_response['articles']:
             articles_results_list = get_article_response['articles']
             articles_results = process_articles(articles_results_list)
-
+        print(articles_results)
         return articles_results
+        
 
 def process_articles(articles_list):
     '''
