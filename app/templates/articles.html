@@ -14,8 +14,8 @@
     <div class="row">
         <h3>Read the lastest news across the globe</h3>
         {% for article in articles %}
-        <div class="card">
-            <img src="{{ article.urlToImage }}" class="card-img-top" alt="Article Image">
+        <div class="card" style="width: 25rem;">
+            <img src="{{ article.urlToImage }}" class="card-img-top img-fluid img-thumbnail" alt="Article Image">
             <div class="card-body">
               <h5 class="card-title">{{article.title}} from: {{article.source}}</h5>
               <div class="card">

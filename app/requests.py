@@ -59,13 +59,13 @@ def process_results(source_list):
 
 #articles starts
 
-def get_articles():
+def get_articles(source_id):
     '''
     Function to get articles
     '''
-    article_source_url = app.config['NEWS_ARTICLE_API_URL']
+    article_source_url = app.config['NEWS_ARTICLE_URL']
     apiKey = app.config['NEWS_APIKEY']
-    get_articles_url = article_source_url.format(apiKey)
+    get_articles_url = article_source_url.format(source_id , apiKey)
 
     '''
     Context manager that sends article request
@@ -93,7 +93,7 @@ def process_articles(articles_list):
     '''
     articles_results = []
     for article in articles_list:
-        source = article.get('source.id')
+        # source = article.get('source.id')
         author = article.get('author')
         title = article.get('title')
         description = article.get('description')
@@ -102,7 +102,7 @@ def process_articles(articles_list):
         publishedAt = article.get('publishedAt')
         content = article.get('content')
         if description:
-            article_object = article_body(source, author, title, description, url, urlToImage, publishedAt, content)
+            article_object = article_body( author, title, description, url, urlToImage, publishedAt, content)
             articles_results.append(article_object) 
 
         return articles_results
