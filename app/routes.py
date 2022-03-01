@@ -16,6 +16,7 @@ def index():
 
 @app.route('/articles')
 def articles():
+    news_sources = get_source('general')
     articles = get_articles('bitcoin')
     print(articles)
-    return render_template('articles.html', title='Articles', articles=articles)
+    return render_template('articles.html', title='Articles', news_sources=news_sources, articles=articles)
