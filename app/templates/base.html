@@ -55,7 +55,7 @@
                 {% for news_source in news_sources %}
                 <ul class="sidebar">
                     <li>
-                        <h5> {{news_source.name}} </h5>
+                        <h5><a href="{{news_source.url}}">{{news_source.name}}</a></h5>
                     </li>
                 </ul>
                 {% endfor %}
